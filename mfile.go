@@ -41,7 +41,6 @@ func GetFileContent(filePath string) (*FileContent, error) {
 	}
 	defer file.Close()
 
-	//os.File
 	data, err := ioutil.ReadAll(file)
 	if err != nil {
 		return nil, err
