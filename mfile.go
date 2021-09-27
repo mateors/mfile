@@ -8,8 +8,13 @@ import (
 )
 
 type FileContent struct {
-	Content  string
+	content  string
 	FileInfo fs.FileInfo
+}
+
+func (fc *FileContent) Content() string {
+
+	return fc.content
 }
 
 func (fc *FileContent) LastModified() string {
@@ -50,5 +55,5 @@ func GetFileContent(filePath string) (*FileContent, error) {
 	if err != nil {
 		return nil, err
 	}
-	return &FileContent{Content: string(data), FileInfo: fileInfo}, nil
+	return &FileContent{content: string(data), FileInfo: fileInfo}, nil
 }
